@@ -240,7 +240,6 @@ export default {
         this.createClusterTask({
           action: taskAction,
           data: {
-            name: this.newClusterLabel,
             host: this.host,
             username: this.username,
             password: this.password,
