@@ -45,6 +45,11 @@ const routes = [
     component: SettingsCluster,
   },
   {
+    path: "/settings/smarthost",
+    name: "SettingsSmarthost",
+    component: SettingsSmartHost,
+  },
+  {
     path: "/settings/software-repository",
     name: "SettingsSoftwareRepositories",
     component: () =>
