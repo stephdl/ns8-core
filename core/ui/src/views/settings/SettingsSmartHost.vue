@@ -47,16 +47,6 @@
               ref="host"
             >
             </cv-text-input>
-            <div v-if="error.setSmarthost" class="bx--row">
-              <div class="bx--col">
-                <NsInlineNotification
-                  kind="error"
-                  :title="$t('action.set-smarthost')"
-                  :description="error.host"
-                  :showCloseButton="false"
-                />
-              </div>
-            </div>
             <cv-text-input
               :label="
                 $t('common.username_label')"
@@ -69,16 +59,6 @@
               ref="username"
             >
             </cv-text-input>
-            <div v-if="error.username" class="bx--row">
-              <div class="bx--col">
-                <NsInlineNotification
-                  kind="error"
-                  :title="$t('action.set-smarthost')"
-                  :description="error.username"
-                  :showCloseButton="false"
-                />
-              </div>
-            </div>
             <cv-text-input
               :label="
                 $t('common.password_label')"
@@ -87,20 +67,11 @@
               :helper-text="$t('common.password_label_tooltip')"
               :invalid-message="$t(error.password)"
               :disabled="loading.getSmarthost || loading.setSmarthost"
+              :type="password"
               maxlength="24"
               ref="password"
             >
             </cv-text-input>
-            <div v-if="error.password" class="bx--row">
-              <div class="bx--col">
-                <NsInlineNotification
-                  kind="error"
-                  :title="$t('action.set-smarthost')"
-                  :description="error.setSmarthost"
-                  :showCloseButton="false"
-                />
-              </div>
-            </div>
             <cv-number-input
               :label="
                 $t('common.port_label')"
@@ -110,17 +81,16 @@
               :invalid-message="$t(error.port)"
               :disabled="loading.getSmarthost || loading.setSmarthost"
               :min="1"
-              :max=" 65535"
-              maxlength="24"
+              :max="65535"
               ref="port"
             >
             </cv-number-input>
-            <div v-if="error.port" class="bx--row">
+            <div v-if="error.setSmarthost" class="bx--row">
               <div class="bx--col">
                 <NsInlineNotification
                   kind="error"
                   :title="$t('action.set-smarthost')"
-                  :description="error.port"
+                  :description="error.setSmarthost"
                   :showCloseButton="false"
                 />
               </div>
