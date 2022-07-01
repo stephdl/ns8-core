@@ -6,6 +6,7 @@ import Settings from "../views/settings/Settings";
 import Applications from "../views/Applications";
 import SystemLogs from "../views/SystemLogs";
 import SettingsCluster from "../views/settings/SettingsCluster";
+import SettingsSmartHost from "../views/settings/SettingsSmartHost";
 import SoftwareCenterAppInstances from "../views/SoftwareCenterAppInstances";
 import Domains from "../views/Domains";
 import Nodes from "../views/Nodes";
