@@ -72,7 +72,20 @@
               ref="password"
             >
             </cv-text-input>
-            <cv-number-input
+            <cv-text-input
+              :label="
+                $t('common.port_label')"
+              v-model.trim="port"
+              :placeholder="$t('common.no_label')"
+              :helper-text="$t('common.port_label_tooltip')"
+              :invalid-message="$t(error.port)"
+              :disabled="loading.getSmarthost || loading.setSmarthost"
+              :type="port"
+              maxlength="24"
+              ref="port"
+            >
+            </cv-text-input>
+            <!-- <cv-number-input
               :label="
                 $t('common.port_label')"
               v-model.trim="port"
@@ -84,7 +97,7 @@
               :max="65535"
               ref="port"
             >
-            </cv-number-input>
+            </cv-number-input> -->
             <div v-if="error.setSmarthost" class="bx--row">
               <div class="bx--col">
                 <NsInlineNotification
