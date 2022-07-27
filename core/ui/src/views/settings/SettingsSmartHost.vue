@@ -42,13 +42,16 @@
               v-model="enabled"
               :disabled="loading.getSmarthost || loading.setSmarthost"
             >
-              <template slot="text-left">{{ $t("common.disabled") }}</template>
-              <template slot="text-right">{{ $t("common.enabled") }}</template>
+              <template slot="text-left">
+                {{ $t("common.disabled") }}
+              </template>
+              <template slot="text-right">
+                {{ $t("common.enabled") }}
+              </template>
             </cv-toggle>
             <template v-if="enabled === true">
               <cv-text-input
-                :label="
-                  $t('common.host_label')"
+                :label="$t('common.host_label')"
                 v-model.trim="host"
                 :placeholder="$t('common.no_label')"
                 :helper-text="$t('common.host_label_tooltip')"
@@ -59,8 +62,7 @@
               >
               </cv-text-input>
               <cv-text-input
-                :label="
-                  $t('common.username_label')"
+                :label="$t('common.username_label')"
                 v-model.trim="username"
                 :placeholder="$t('common.email')"
                 :helper-text="$t('common.username_label_tooltip')"
@@ -71,13 +73,12 @@
               >
               </cv-text-input>
               <NsTextInput
-                  :label="
-                    $t('common.password_label')"
-                  v-model="password"
-                  :invalid-message="$t(error.password)"
-                  type="password"
-                  ref="password"
-                >
+                :label="$t('common.password_label')"
+                v-model="password"
+                :invalid-message="$t(error.password)"
+                type="password"
+                ref="password"
+              >
               </NsTextInput>
               <!-- <cv-text-input
                 :label="
@@ -123,8 +124,12 @@
                 v-model="tls"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
               >
-                <template slot="text-left">{{ $t("common.disabled") }}</template>
-                <template slot="text-right">{{ $t("common.enabled") }}</template>
+                <template slot="text-left">
+                  {{ $t("common.disabled") }}
+                </template>
+                <template slot="text-right">
+                  {{ $t("common.enabled") }}
+                </template>
               </cv-toggle>
               <cv-toggle
                 :label="$t('common.tls_verify')"
@@ -133,8 +138,12 @@
                 v-model="tls_verify"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
               >
-                <template slot="text-left">{{ $t("common.disabled") }}</template>
-                <template slot="text-right">{{ $t("common.enabled") }}</template>
+                <template slot="text-left">
+                  {{ $t("common.disabled") }}
+                </template>
+                <template slot="text-right">
+                  {{ $t("common.enabled") }}
+                </template>
               </cv-toggle>
             </template>
             <div ref="setSmarthostError">
@@ -186,7 +195,7 @@ export default {
   pageTitle() {
     return this.$t("settings_smarthost.title");
   },
-  data() {
+  data() { 
     return {
       q: {},
       port: 587,
@@ -229,7 +238,7 @@ export default {
     next();
   },
 watch: {
-      "error.setSmarthost": function () {
+  "error.setSmarthost": function () {
     if (this.error.setSmarthost) {
       // scroll to notification error
 
@@ -295,7 +304,6 @@ watch: {
       this.error.setSmarthost = "";
       this.loading.setSmarthost = true;
       const taskAction = "set-smarthost";
-      // const eventId = this.getUuid();
 
       // register to task completion
       this.$root.$once(
@@ -307,11 +315,7 @@ watch: {
         taskAction+"-aborted",
         this.setSmarthostAborted
       );
-      // // register to task validation
-      // this.$root.$once(
-      //   `${taskAction}-validation-ok-${eventId}`,
-      //   this.setSmarthostValidationOk
-      // );
+
       this.$root.$once(
         taskAction + "-validation-failed",
         this.setSmarthostValidationFailed
