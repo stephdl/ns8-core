@@ -147,7 +147,7 @@
               </cv-toggle>
             </template>
             <div ref="setSmarthostError">
-              <div v-if="error.setSmarthost" class="bx--row">
+              <div v-if="error.test_smarthost" class="bx--row">
                 <div class="bx--col">
                   <NsInlineNotification
                     kind="error"
