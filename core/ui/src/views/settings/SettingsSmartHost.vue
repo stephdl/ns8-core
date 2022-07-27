@@ -124,24 +124,24 @@
                 <template slot="text-left">{{ $t("common.disabled") }}</template>
                 <template slot="text-right">{{ $t("common.enabled") }}</template>
               </cv-toggle>
-              <div v-if="error.setSmarthost" class="bx--row">
-                <div class="bx--col">
-                  <NsInlineNotification
-                    kind="error"
-                    :title="$t('action.set-smarthost')"
-                    :description="error.setSmarthost"
-                    :showCloseButton="false"
-                  />
-                </div>
-              </div>
-              <NsButton
-                kind="primary"
-                :icon="Save20"
-                :loading="loading.setSmarthost"
-                :disabled="isLoadingSettings"
-                >{{ $t("common.save_settings") }}</NsButton
-              >
             </template>
+            <div v-if="error.setSmarthost" class="bx--row">
+              <div class="bx--col">
+                <NsInlineNotification
+                  kind="error"
+                  :title="$t('action.set-smarthost')"
+                  :description="error.setSmarthost"
+                  :showCloseButton="false"
+                />
+              </div>
+            </div>
+            <NsButton
+              kind="primary"
+              :icon="Save20"
+              :loading="loading.setSmarthost"
+              :disabled="isLoadingSettings"
+              >{{ $t("common.save_settings") }}</NsButton
+            >
           </cv-form>
         </cv-tile>
       </div>
