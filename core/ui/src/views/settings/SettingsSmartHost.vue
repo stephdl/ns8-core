@@ -137,14 +137,16 @@
                 <template slot="text-right">{{ $t("common.enabled") }}</template>
               </cv-toggle>
             </template>
-            <div v-if="error.setSmarthost" class="bx--row">
-              <div class="bx--col">
-                <NsInlineNotification
-                  kind="error"
-                  :title="$t('action.set-smarthost')"
-                  :description="error.setSmarthost"
-                  :showCloseButton="false"
-                />
+            <div ref="setSmarthostError">
+              <div v-if="error.setSmarthost" class="bx--row">
+                <div class="bx--col">
+                  <NsInlineNotification
+                    kind="error"
+                    :title="$t('action.set-smarthost')"
+                    :description="error.setSmarthost"
+                    :showCloseButton="false"
+                  />
+                </div>
               </div>
             </div>
             <NsButton
@@ -226,6 +228,18 @@ export default {
     this.queryParamsToDataForCore(this, to.query);
     next();
   },
+watch: {
+      "error.setSmarthost": function () {
+    if (this.error.setSmarthost) {
+      // scroll to notification error
+
+      this.$nextTick(() => {
+        const el = this.$refs.setSmarthostError;
+        this.scrollToElement(el);
+      });
+    }
+  }
+},
   created() {
     this.getSmarthost();
   },
