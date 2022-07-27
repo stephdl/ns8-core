@@ -296,9 +296,29 @@ watch: {
       this.loading.setSmarthost = true;
       const taskAction = "set-smarthost";
 
+      // // register to task completion
+      // this.$root.$once(
+      //   taskAction + "-completed",
+      //   this.setSmarthostCompleted
+      // );
+      // register to task error
+      this.$root.$once(
+        `${taskAction}-aborted-${eventId}`,
+        this.setSmarthostAborted
+      );
+      // // register to task validation
+      // this.$root.$once(
+      //   `${taskAction}-validation-ok-${eventId}`,
+      //   this.setSmarthostValidationOk
+      // );
+      this.$root.$once(
+        `${taskAction}-validation-failed-${eventId}`,
+        this.setSmarthostValidationFailed
+      );
+
       // register to task completion
       this.$root.$once(
-        taskAction + "-completed",
+        `${taskAction}-completed-${eventId}`,
         this.setSmarthostCompleted
       );
 
@@ -327,6 +347,31 @@ watch: {
         this.error.setSmarthost = this.getErrorMessage(err);
         this.loading.setSmarthost = false;
         return;
+      }
+    },
+    // setSmarthostValidationOk() {
+    //   this.loading.setSmarthost= false;
+
+    //   // hide modal after validation
+    //   this.$emit("hide");
+    // },
+    setSmarthostValidationFailed(validationErrors) {
+      this.loading.setSmarthost = false;
+      let focusAlreadySet = false;
+
+      for (const validationError of validationErrors) {
+        const param = validationError.parameter;
+
+        // set i18n error message
+        this.error[param] = this.getI18nStringWithFallback(
+          "settings_http_routes." + validationError.error,
+          "error." + validationError.error
+        );
+
+        if (!focusAlreadySet) {
+          this.focusElement(param);
+          focusAlreadySet = true;
+        }
       }
     },
     setSmarthostCompleted() {
