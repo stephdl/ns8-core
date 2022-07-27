@@ -295,6 +295,7 @@ watch: {
       this.error.setSmarthost = "";
       this.loading.setSmarthost = true;
       const taskAction = "set-smarthost";
+      const eventId = this.getUuid();
 
       // // register to task completion
       // this.$root.$once(
