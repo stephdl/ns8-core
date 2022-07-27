@@ -79,7 +79,7 @@
                   ref="password"
                 >
               </NsTextInput>
-              <cv-text-input
+              <!-- <cv-text-input
                 :label="
                   $t('common.port_label')"
                 v-model.trim="port"
@@ -90,7 +90,19 @@
                 maxlength="24"
                 ref="port"
               >
-              </cv-text-input>
+              </cv-text-input> -->
+              <NsTextInput
+                v-model.trim="port"
+                :label="$t('common.port_label')"
+                :helper-text="$t('common.port_label_helper')"
+                :invalid-message="error.port"
+                :disabled="loading.getSmarthost || loading.setSmarthost"
+                ref="port"
+              >
+                <template slot="tooltip">
+                  <span v-html="$t('common.port_label_tooltip')"></span>
+                </template>
+              </NsTextInput>
               <!-- <cv-number-input
                 :label="
                   $t('common.port_label')"
