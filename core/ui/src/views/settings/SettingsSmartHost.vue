@@ -295,16 +295,16 @@ watch: {
       this.error.setSmarthost = "";
       this.loading.setSmarthost = true;
       const taskAction = "set-smarthost";
-      const eventId = this.getUuid();
+      // const eventId = this.getUuid();
 
-      // // register to task completion
-      // this.$root.$once(
-      //   taskAction + "-completed",
-      //   this.setSmarthostCompleted
-      // );
+      // register to task completion
+      this.$root.$once(
+        taskAction + "-completed",
+        this.setSmarthostCompleted
+      );
       // register to task error
       this.$root.$once(
-        `${taskAction}-aborted-${eventId}`,
+        taskAction+"-aborted",
         this.setSmarthostAborted
       );
       // // register to task validation
@@ -313,13 +313,13 @@ watch: {
       //   this.setSmarthostValidationOk
       // );
       this.$root.$once(
-        `${taskAction}-validation-failed-${eventId}`,
+        taskAction + "-validation-failed",
         this.setSmarthostValidationFailed
       );
 
       // register to task completion
       this.$root.$once(
-        `${taskAction}-completed-${eventId}`,
+        taskAction + "-completed",
         this.setSmarthostCompleted
       );
 
