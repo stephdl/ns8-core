@@ -35,6 +35,16 @@
       <div class="bx--col">
         <cv-tile :light="true">
           <cv-form @submit.prevent="saveSettings">
+            <cv-toggle
+              :label="$t('common.enabled')"
+              value="statusValue"
+              :form-item="true"
+              v-model="enabled"
+              :disabled="loading.getSmarthost || loading.setSmarthost"
+            >
+              <template slot="text-left">{{ $t("common.disabled") }}</template>
+              <template slot="text-right">{{ $t("common.enabled") }}</template>
+            </cv-toggle>
             <cv-text-input
               :label="
                 $t('common.host_label')"
@@ -68,18 +78,6 @@
                 ref="password"
               >
             </NsTextInput>
-            <cv-text-input
-              :label="
-                $t('common.password_label')"
-              v-model.trim="password"
-              :placeholder="$t('common.no_label')"
-              :helper-text="$t('common.password_label_tooltip')"
-              :invalid-message="$t(error.password)"
-              :disabled="loading.getSmarthost || loading.setSmarthost"
-              maxlength="24"
-              ref="password"
-            >
-            </cv-text-input>
             <cv-text-input
               :label="
                 $t('common.port_label')"
