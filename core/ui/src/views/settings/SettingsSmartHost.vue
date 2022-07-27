@@ -59,6 +59,15 @@
               ref="username"
             >
             </cv-text-input>
+            <NsTextInput
+                :label="
+                  $t('common.password_label')"
+                v-model="password"
+                :invalid-message="$t(error.password)"
+                type="password"
+                ref="password"
+              >
+            </NsTextInput>
             <cv-text-input
               :label="
                 $t('common.password_label')"
