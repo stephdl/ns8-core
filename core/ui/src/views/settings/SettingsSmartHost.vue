@@ -67,7 +67,6 @@
               :helper-text="$t('common.password_label_tooltip')"
               :invalid-message="$t(error.password)"
               :disabled="loading.getSmarthost || loading.setSmarthost"
-              :type="password"
               maxlength="24"
               ref="password"
             >
@@ -80,7 +79,6 @@
               :helper-text="$t('common.port_label_tooltip')"
               :invalid-message="$t(error.port)"
               :disabled="loading.getSmarthost || loading.setSmarthost"
-              :type="port"
               maxlength="24"
               ref="port"
             >
