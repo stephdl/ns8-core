@@ -152,7 +152,7 @@
                   <NsInlineNotification
                     kind="error"
                     :title="$t('action.set-smarthost')"
-                    :description="error.setSmarthost"
+                    :description="error.test_smarthost"
                     :showCloseButton="false"
                   />
                 </div>
@@ -195,7 +195,7 @@ export default {
   pageTitle() {
     return this.$t("settings_smarthost.title");
   },
-  data() { 
+  data() {
     return {
       q: {},
       port: 587,
@@ -237,18 +237,18 @@ export default {
     this.queryParamsToDataForCore(this, to.query);
     next();
   },
-watch: {
-  "error.setSmarthost": function () {
-    if (this.error.setSmarthost) {
-      // scroll to notification error
+  watch: {
+    "error.setSmarthost": function () {
+      if (this.error.setSmarthost) {
+        // scroll to notification error
 
-      this.$nextTick(() => {
-        const el = this.$refs.setSmarthostError;
-        this.scrollToElement(el);
-      });
-    }
-  }
-},
+        this.$nextTick(() => {
+          const el = this.$refs.setSmarthostError;
+          this.scrollToElement(el);
+        });
+      }
+    },
+  },
   created() {
     this.getSmarthost();
   },
