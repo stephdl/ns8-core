@@ -335,7 +335,7 @@ export default {
       
       const isValidationOk = this.validateConfigureModule();
       if (!isValidationOk) {
-        return;
+        this.loading.setSmarthost = false;
       }
       const taskAction = "set-smarthost";
 
