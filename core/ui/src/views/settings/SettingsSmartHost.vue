@@ -36,25 +36,25 @@
         <cv-tile :light="true">
           <cv-form @submit.prevent="saveSettings">
             <cv-toggle
-              :label="$t('common.enabled')"
+              :label="$t('smarthost.enabled')"
               value="statusValue"
               :form-item="true"
               v-model="enabled"
               :disabled="loading.getSmarthost || loading.setSmarthost"
             >
               <template slot="text-left">
-                {{ $t("common.disabled") }}
+                {{ $t("smarthost.disabled") }}
               </template>
               <template slot="text-right">
-                {{ $t("common.enabled") }}
+                {{ $t("smarthost.enabled") }}
               </template>
             </cv-toggle>
             <template v-if="enabled === true">
               <!-- <cv-text-input
-                :label="$t('common.host_label')"
+                :label="$t('smarthost.host_label')"
                 v-model.trim="host"
-                :placeholder="$t('common.no_label')"
-                :helper-text="$t('common.host_label_tooltip')"
+                :placeholder="$t('smarthost.no_label')"
+                :helper-text="$t('smarthost.host_label_tooltip')"
                 :invalid-message="$t(error.host)"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 maxlength="24"
@@ -63,22 +63,22 @@
               </cv-text-input> -->
               <NsTextInput
                 v-model.trim="host"
-                :placeholder="$t('common.hostname')"
-                :label="$t('common.hostname_label')"
-                :helper-text="$t('common.hostname_label_helper')"
+                :placeholder="$t('smarthost.hostname')"
+                :label="$t('smarthost.hostname_label')"
+                :helper-text="$t('smarthost.hostname_label_helper')"
                 :invalid-message="error.host"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="host"
               >
                 <template slot="tooltip">
-                  <span v-html="$t('common.hostname_label_tooltip')"></span>
+                  <span v-html="$t('smarthost.hostname_label_tooltip')"></span>
                 </template>
               </NsTextInput>
               <!-- <cv-text-input
-                :label="$t('common.username_label')"
+                :label="$t('smarthost.username_label')"
                 v-model.trim="username"
-                :placeholder="$t('common.email')"
-                :helper-text="$t('common.username_label_tooltip')"
+                :placeholder="$t('smarthost.email')"
+                :helper-text="$t('smarthost.username_label_tooltip')"
                 :invalid-message="$t(error.username)"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 maxlength="24"
@@ -87,19 +87,19 @@
               </cv-text-input> -->
               <NsTextInput
                 v-model.trim="username"
-                :placeholder="$t('common.email')"
-                :label="$t('common.username_label')"
-                :helper-text="$t('common.username_label_helper')"
+                :placeholder="$t('smarthost.email')"
+                :label="$t('smarthost.username_label')"
+                :helper-text="$t('smarthost.username_label_helper')"
                 :invalid-message="error.username"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="username"
               >
                 <template slot="tooltip">
-                  <span v-html="$t('common.username_label_tooltip')"></span>
+                  <span v-html="$t('smarthost.username_label_tooltip')"></span>
                 </template>
               </NsTextInput>
               <NsTextInput
-                :label="$t('common.password_label')"
+                :label="$t('smarthost.password_label')"
                 v-model="password"
                 :invalid-message="$t(error.password)"
                 type="password"
@@ -108,10 +108,10 @@
               </NsTextInput>
               <!-- <cv-text-input
                 :label="
-                  $t('common.port_label')"
+                  $t('smarthost.port_label')"
                 v-model.trim="port"
-                :placeholder="$t('common.no_label')"
-                :helper-text="$t('common.port_label_tooltip')"
+                :placeholder="$t('smarthost.no_label')"
+                :helper-text="$t('smarthost.port_label_tooltip')"
                 :invalid-message="$t(error.port)"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 maxlength="24"
@@ -120,22 +120,22 @@
               </cv-text-input> -->
               <NsTextInput
                 v-model.trim="port"
-                :label="$t('common.port_label')"
-                :helper-text="$t('common.port_label_helper')"
+                :label="$t('smarthost.port_label')"
+                :helper-text="$t('smarthost.port_label_helper')"
                 :invalid-message="error.port"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="port"
               >
                 <template slot="tooltip">
-                  <span v-html="$t('common.port_label_tooltip')"></span>
+                  <span v-html="$t('smarthost.port_label_tooltip')"></span>
                 </template>
               </NsTextInput>
               <!-- <cv-number-input
                 :label="
-                  $t('common.port_label')"
+                  $t('smarthost.port_label')"
                 v-model.trim="port"
-                :placeholder="$t('common.no_label')"
-                :helper-text="$t('common.port_label_tooltip')"
+                :placeholder="$t('smarthost.no_label')"
+                :helper-text="$t('smarthost.port_label_tooltip')"
                 :invalid-message="$t(error.port)"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 :min="1"
@@ -144,31 +144,31 @@
               >
               </cv-number-input> -->
               <cv-toggle
-                :label="$t('common.tls')"
+                :label="$t('smarthost.tls')"
                 value="statusValue"
                 :form-item="true"
                 v-model="tls"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
               >
                 <template slot="text-left">
-                  {{ $t("common.disabled") }}
+                  {{ $t("smarthost.disabled") }}
                 </template>
                 <template slot="text-right">
-                  {{ $t("common.enabled") }}
+                  {{ $t("smarthost.enabled") }}
                 </template>
               </cv-toggle>
               <cv-toggle
-                :label="$t('common.tls_verify')"
+                :label="$t('smarthost.tls_verify')"
                 value="statusValue"
                 :form-item="true"
                 v-model="tls_verify"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
               >
                 <template slot="text-left">
-                  {{ $t("common.disabled") }}
+                  {{ $t("smarthost.disabled") }}
                 </template>
                 <template slot="text-right">
-                  {{ $t("common.enabled") }}
+                  {{ $t("smarthost.enabled") }}
                 </template>
               </cv-toggle>
             </template>
@@ -189,7 +189,7 @@
               :icon="Save20"
               :loading="loading.setSmarthost"
               :disabled="isLoadingSettings"
-              >{{ $t("common.save_settings") }}</NsButton
+              >{{ $t("smarthost.save_settings") }}</NsButton
             >
           </cv-form>
         </cv-tile>
@@ -397,7 +397,7 @@ export default {
 
         // set i18n error message
         this.error[param] = this.getI18nStringWithFallback(
-          "common." + validationError.error,
+          "smarthost." + validationError.error,
           "error." + validationError.error
         );
 

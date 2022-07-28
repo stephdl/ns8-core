@@ -63,7 +63,7 @@
           @click="goTo('/settings/smarthost')"
           :icon="Certificate32"
         >
-          <h6>{{ $t("settings_smarthost.title") }}</h6>
+          <h6>{{ $t("smarthost.title") }}</h6>
         </NsTile>
       </cv-column>
     </cv-row>
