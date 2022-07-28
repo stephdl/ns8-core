@@ -367,7 +367,11 @@ export default {
       this.getSmarthost();
     },
     validateConfigureModule() {
-      this.clearErrors(this);
+      // this.clearErrors(this);
+      for (const key of Object.keys(this.error)) {
+        this.error[key] = "";
+      }
+      
       let isValidationOk = true;
       if (!this.host) {
         this.error.host = "smarthost.required";
