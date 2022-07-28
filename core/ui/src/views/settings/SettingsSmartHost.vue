@@ -236,7 +236,10 @@ export default {
   methods: {
     ...mapActions(["setSmarthostInStore"]),
     async getSmarthost() {
-      this.error.getSmarthost = "";
+      for (const key of Object.keys(this.error)) {
+        this.error[key] = "";
+      }
+      // this.error.getSmarthost = "";
       this.loading.getSmarthost = true;
       const taskAction = "get-smarthost";
 
@@ -371,7 +374,7 @@ export default {
       for (const key of Object.keys(this.error)) {
         this.error[key] = "";
       }
-      
+
       let isValidationOk = true;
       if (!this.host) {
         this.error.host = "smarthost.required";
