@@ -331,12 +331,12 @@ export default {
     async setSmarthost() {
       this.error.setSmarthost = false;
       this.error.test_smarthost = false;
-      this.loading.setSmarthost = true;
-      
       const isValidationOk = this.validateConfigureModule();
       if (!isValidationOk) {
-        this.loading.setSmarthost = false;
+        return;
       }
+      this.loading.setSmarthost = true;
+      
       const taskAction = "set-smarthost";
 
       // register to task completion
