@@ -422,7 +422,7 @@ export default {
     validateConfigureModule() {
       this.clearErrors(this);
       let isValidationOk = true;
-      if (!this.wikiName) {
+      if (!this.host) {
         this.error.host = "smarthost.required";
         if (isValidationOk) {
           this.focusElement("host");
