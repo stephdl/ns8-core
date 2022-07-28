@@ -50,7 +50,7 @@
               </template>
             </cv-toggle>
             <template v-if="enabled === true">
-              <cv-text-input
+              <!-- <cv-text-input
                 :label="$t('common.host_label')"
                 v-model.trim="host"
                 :placeholder="$t('common.no_label')"
@@ -60,8 +60,21 @@
                 maxlength="24"
                 ref="host"
               >
-              </cv-text-input>
-              <cv-text-input
+              </cv-text-input> -->
+              <NsTextInput
+                v-model.trim="host"
+                :placeholder="$t('common.hostname')"
+                :label="$t('common.hostname_label')"
+                :helper-text="$t('common.hostname_label_helper')"
+                :invalid-message="error.host"
+                :disabled="loading.getSmarthost || loading.setSmarthost"
+                ref="host"
+              >
+                <template slot="tooltip">
+                  <span v-html="$t('common.hostname_label_tooltip')"></span>
+                </template>
+              </NsTextInput>
+              <!-- <cv-text-input
                 :label="$t('common.username_label')"
                 v-model.trim="username"
                 :placeholder="$t('common.email')"
@@ -71,7 +84,20 @@
                 maxlength="24"
                 ref="username"
               >
-              </cv-text-input>
+              </cv-text-input> -->
+              <NsTextInput
+                v-model.trim="username"
+                :placeholder="$t('common.email')"
+                :label="$t('common.username_label')"
+                :helper-text="$t('common.username_label_helper')"
+                :invalid-message="error.username"
+                :disabled="loading.getSmarthost || loading.setSmarthost"
+                ref="username"
+              >
+                <template slot="tooltip">
+                  <span v-html="$t('common.username_label_tooltip')"></span>
+                </template>
+              </NsTextInput>
               <NsTextInput
                 :label="$t('common.password_label')"
                 v-model="password"
