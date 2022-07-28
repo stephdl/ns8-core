@@ -122,6 +122,7 @@
                 v-model.trim="port"
                 :label="$t('smarthost.port_label')"
                 :helper-text="$t('smarthost.port_label_helper')"
+                :placeholder="$t('smarthost.TCP_port')"
                 :invalid-message="error.port"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="port"
@@ -428,6 +429,7 @@ export default {
         }
         isValidationOk = false;
       }
+      return isValidationOk
     },
   },
 };
