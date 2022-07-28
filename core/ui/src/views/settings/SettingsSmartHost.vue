@@ -331,6 +331,11 @@ export default {
       this.error.setSmarthost = false;
       this.error.test_smarthost = false;
       this.loading.setSmarthost = true;
+      
+      const isValidationOk = this.validateConfigureModule();
+      if (!isValidationOk) {
+        return;
+      }
       const taskAction = "set-smarthost";
 
       // register to task completion
@@ -412,6 +417,17 @@ export default {
 
       //// don't do this at every task completed
       this.getSmarthost();
+    },
+    validateConfigureModule() {
+      this.clearErrors(this);
+      let isValidationOk = true;
+      if (!this.wikiName) {
+        this.error.host = "smarthost.required";
+        if (isValidationOk) {
+          this.focusElement("host");
+        }
+        isValidationOk = false;
+      }
     },
   },
 };
