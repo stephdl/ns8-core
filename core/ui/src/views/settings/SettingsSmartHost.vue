@@ -219,6 +219,7 @@ export default {
         tls:"",
         tls_verify: "",
         setSmarthost: "",
+        test_smarthost:""
       },
     };
   },
@@ -302,6 +303,7 @@ export default {
     },
     async setSmarthost() {
       this.error.setSmarthost = false;
+      this.error.test_smarthost = false;
       this.loading.setSmarthost = true;
       const taskAction = "set-smarthost";
 
