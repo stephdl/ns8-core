@@ -301,7 +301,7 @@ export default {
       this.setSmarthost();
     },
     async setSmarthost() {
-      this.error.setSmarthost = "";
+      this.error.setSmarthost = false;
       this.loading.setSmarthost = true;
       const taskAction = "set-smarthost";
 
@@ -369,7 +369,7 @@ export default {
 
         // set i18n error message
         this.error[param] = this.getI18nStringWithFallback(
-          "settings_http_routes." + validationError.error,
+          "common." + validationError.error,
           "error." + validationError.error
         );
 
