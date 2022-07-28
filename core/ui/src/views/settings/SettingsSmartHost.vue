@@ -50,17 +50,6 @@
               </template>
             </cv-toggle>
             <template v-if="enabled === true">
-              <!-- <cv-text-input
-                :label="$t('smarthost.host_label')"
-                v-model.trim="host"
-                :placeholder="$t('smarthost.no_label')"
-                :helper-text="$t('smarthost.host_label_tooltip')"
-                :invalid-message="$t(error.host)"
-                :disabled="loading.getSmarthost || loading.setSmarthost"
-                maxlength="24"
-                ref="host"
-              >
-              </cv-text-input> -->
               <NsTextInput
                 v-model.trim="host"
                 :placeholder="$t('smarthost.hostname')"
@@ -74,17 +63,6 @@
                   <span v-html="$t('smarthost.hostname_label_tooltip')"></span>
                 </template>
               </NsTextInput>
-              <!-- <cv-text-input
-                :label="$t('smarthost.username_label')"
-                v-model.trim="username"
-                :placeholder="$t('smarthost.email')"
-                :helper-text="$t('smarthost.username_label_tooltip')"
-                :invalid-message="$t(error.username)"
-                :disabled="loading.getSmarthost || loading.setSmarthost"
-                maxlength="24"
-                ref="username"
-              >
-              </cv-text-input> -->
               <NsTextInput
                 v-model.trim="username"
                 :placeholder="$t('smarthost.email')"
@@ -106,18 +84,6 @@
                 ref="password"
               >
               </NsTextInput>
-              <!-- <cv-text-input
-                :label="
-                  $t('smarthost.port_label')"
-                v-model.trim="port"
-                :placeholder="$t('smarthost.no_label')"
-                :helper-text="$t('smarthost.port_label_tooltip')"
-                :invalid-message="$t(error.port)"
-                :disabled="loading.getSmarthost || loading.setSmarthost"
-                maxlength="24"
-                ref="port"
-              >
-              </cv-text-input> -->
               <NsTextInput
                 v-model.trim="port"
                 :label="$t('smarthost.port_label')"
@@ -131,19 +97,6 @@
                   <span v-html="$t('smarthost.port_label_tooltip')"></span>
                 </template>
               </NsTextInput>
-              <!-- <cv-number-input
-                :label="
-                  $t('smarthost.port_label')"
-                v-model.trim="port"
-                :placeholder="$t('smarthost.no_label')"
-                :helper-text="$t('smarthost.port_label_tooltip')"
-                :invalid-message="$t(error.port)"
-                :disabled="loading.getSmarthost || loading.setSmarthost"
-                :min="1"
-                :max="65535"
-                ref="port"
-              >
-              </cv-number-input> -->
               <cv-toggle
                 :label="$t('smarthost.tls')"
                 value="statusValue"
@@ -365,12 +318,12 @@ export default {
         this.createClusterTask({
           action: taskAction,
           data: {
-            host: this.host,
-            username: this.username,
-            password: this.password,
-            port: this.port,
-            tls: this.tls,
-            tls_verify: this.tls_verify,
+            host: this.enabled ? this.host : "",
+            username: this.enabled ? this.username : "",
+            password: this.enabled ? this.password : "",
+            port: this.enabled ? this.port : 587,
+            tls: this.enabled ? this.tls : true,
+            tls_verify: this.enabled ? this.tls_verify : true,
             enabled: this.enabled
           },
           extra: {
@@ -388,12 +341,6 @@ export default {
         return;
       }
     },
-    // setSmarthostValidationOk() {
-    //   this.loading.setSmarthost= false;
-
-    //   // hide modal after validation
-    //   this.$emit("hide");
-    // },
     setSmarthostValidationFailed(validationErrors) {
       this.loading.setSmarthost = false;
       let focusAlreadySet = false;
