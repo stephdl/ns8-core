@@ -61,7 +61,7 @@
           :light="true"
           kind="clickable"
           @click="goTo('/settings/smarthost')"
-          :icon="Certificate32"
+          :icon="Email32"
         >
           <h6>{{ $t("smarthost.title") }}</h6>
         </NsTile>
