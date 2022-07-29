@@ -43,10 +43,10 @@
               :disabled="loading.getSmarthost || loading.setSmarthost"
             >
               <template slot="text-left">
-                {{ $t("smarthost.disabled") }}
+                {{ $t("common.disabled") }}
               </template>
               <template slot="text-right">
-                {{ $t("smarthost.enabled") }}
+                {{ $t("common.enabled") }}
               </template>
             </cv-toggle>
             <template v-if="enabled === true">
@@ -105,10 +105,10 @@
                 :disabled="loading.getSmarthost || loading.setSmarthost"
               >
                 <template slot="text-left">
-                  {{ $t("smarthost.disabled") }}
+                  {{ $t("common.disabled") }}
                 </template>
                 <template slot="text-right">
-                  {{ $t("smarthost.enabled") }}
+                  {{ $t("common.enabled") }}
                 </template>
               </cv-toggle>
               <cv-toggle
@@ -119,10 +119,10 @@
                 :disabled="loading.getSmarthost || loading.setSmarthost"
               >
                 <template slot="text-left">
-                  {{ $t("smarthost.disabled") }}
+                  {{ $t("common.disabled") }}
                 </template>
                 <template slot="text-right">
-                  {{ $t("smarthost.enabled") }}
+                  {{ $t("common.enabled") }}
                 </template>
               </cv-toggle>
             </template>
@@ -143,7 +143,7 @@
               :icon="Save20"
               :loading="loading.setSmarthost"
               :disabled="isLoadingSettings"
-              >{{ $t("smarthost.save_settings") }}</NsButton
+              >{{ $t("common.save_settings") }}</NsButton
             >
           </cv-form>
         </cv-tile>
