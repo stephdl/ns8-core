@@ -11,14 +11,14 @@
             <cv-link to="/settings">{{ $t("settings.title") }}</cv-link>
           </cv-breadcrumb-item>
           <cv-breadcrumb-item>
-            <span>{{ $t("settings_smarthost.title") }}</span>
+            <span>{{ $t("smarthost.title") }}</span>
           </cv-breadcrumb-item>
         </cv-breadcrumb>
       </div>
     </div>
     <div class="bx--row">
       <div class="bx--col-lg-16 subpage-title">
-        <h3>{{ $t("settings_smarthost.title") }}</h3>
+        <h3>{{ $t("smarthost.title") }}</h3>
       </div>
     </div>
     <div v-if="error.getSmarthost" class="bx--row">
