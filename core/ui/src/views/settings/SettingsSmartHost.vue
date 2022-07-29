@@ -324,7 +324,7 @@ export default {
             host: this.enabled ? this.host : "",
             username: this.enabled ? this.username : "",
             password: this.enabled ? this.password : "",
-            port: this.enabled ? this.port : 587,
+            port: this.enabled ? parseInt(this.port) : 587,
             tls: this.enabled ? this.tls : true,
             tls_verify: this.enabled ? this.tls_verify : true,
             enabled: this.enabled
