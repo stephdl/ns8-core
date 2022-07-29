@@ -54,7 +54,6 @@
                 v-model.trim="host"
                 :placeholder="$t('smarthost.hostname_placeholder')"
                 :label="$t('smarthost.hostname_label')"
-                :helper-text="$t('smarthost.hostname_label_helper')"
                 :invalid-message="error.host"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="host"
@@ -67,7 +66,6 @@
                 v-model.trim="username"
                 :placeholder="$t('smarthost.username_placeholder')"
                 :label="$t('smarthost.username_label')"
-                :helper-text="$t('smarthost.username_label_helper')"
                 :invalid-message="error.username"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="username"
@@ -87,7 +85,6 @@
               <NsTextInput
                 v-model.trim="port"
                 :label="$t('smarthost.port_label')"
-                :helper-text="$t('smarthost.port_label_helper')"
                 :placeholder="$t('smarthost.port_placeholder')"
                 :invalid-message="error.port"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
