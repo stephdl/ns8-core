@@ -52,7 +52,7 @@
             <template v-if="enabled === true">
               <NsTextInput
                 v-model.trim="host"
-                :placeholder="$t('smarthost.hostname')"
+                :placeholder="$t('smarthost.hostname_placeholder')"
                 :label="$t('smarthost.hostname_label')"
                 :helper-text="$t('smarthost.hostname_label_helper')"
                 :invalid-message="error.host"
@@ -65,7 +65,7 @@
               </NsTextInput>
               <NsTextInput
                 v-model.trim="username"
-                :placeholder="$t('smarthost.email')"
+                :placeholder="$t('smarthost.username_placeholder')"
                 :label="$t('smarthost.username_label')"
                 :helper-text="$t('smarthost.username_label_helper')"
                 :invalid-message="error.username"
@@ -88,7 +88,7 @@
                 v-model.trim="port"
                 :label="$t('smarthost.port_label')"
                 :helper-text="$t('smarthost.port_label_helper')"
-                :placeholder="$t('smarthost.TCP_port')"
+                :placeholder="$t('smarthost.port_placeholder')"
                 :invalid-message="error.port"
                 :disabled="loading.getSmarthost || loading.setSmarthost"
                 ref="port"

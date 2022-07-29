@@ -1023,5 +1023,17 @@
     "documentation": "Documentation",
     "helpdesk": "Helpdesk",
     "animated_icons_by": "Animated icons by"
+  },
+  "smarthost": {
+    "enabled":"Enable the smarthost provider",
+    "hostname_label":"Hostname",
+    "hostname_label_tooltip":"Write the URL where to reach the SMTP server",
+    "hostname_placeholder":"smtp.domain.com",
+    "username_label":"Username",
+    "username_label_tooltip":"Write the name of the user account or let it blanck if no authentication",
+    "username_placeholder":"foo@domain.com",
+    "password_label":"Password",
+    "port_label":"Port",
+    "port_label_tooltip":"Write the port where to reach the SMTP server"
   }
 }
