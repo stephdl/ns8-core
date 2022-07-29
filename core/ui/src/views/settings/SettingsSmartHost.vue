@@ -125,19 +125,19 @@
                   {{ $t("common.enabled") }}
                 </template>
               </cv-toggle>
-            </template>
-            <div ref="setSmarthostError">
-              <div v-if="error.test_smarthost" class="bx--row">
-                <div class="bx--col">
-                  <NsInlineNotification
-                    kind="error"
-                    :title="$t('action.set-smarthost')"
-                    :description="error.test_smarthost"
-                    :showCloseButton="false"
-                  />
+              <div ref="setSmarthostError">
+                <div v-if="error.test_smarthost" class="bx--row">
+                  <div class="bx--col">
+                    <NsInlineNotification
+                      kind="error"
+                      :title="$t('action.set-smarthost')"
+                      :description="error.test_smarthost"
+                      :showCloseButton="false"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            </template>
             <NsButton
               kind="primary"
               :icon="Save20"
