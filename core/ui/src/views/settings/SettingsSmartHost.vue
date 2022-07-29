@@ -377,7 +377,7 @@ export default {
 
       let isValidationOk = true;
       if (!this.host) {
-        this.error.host = "common.required";
+        this.error.host = "smarthost.required";
         if (isValidationOk) {
           this.focusElement("host");
         }

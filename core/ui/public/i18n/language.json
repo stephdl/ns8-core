@@ -1045,6 +1045,7 @@
     "cannot_authenticate_to_server":"We cannot authenticate, it is probably due to a bad login or bad password",
     "cannot_connect_to_server":" We cannot connect to the SMTP Server, please try again.",
     "connection_not_supported_by_server":"The connection is not supported by the server, you should try to enable STARTTLS",
-    "valid_certificate_verification_error":"The certificate is not valid for the server, you should try to disable the certificate verification"
+    "valid_certificate_verification_error":"The certificate is not valid for the server, you should try to disable the certificate verification",
+    "required":"This field is required"
   }
 }
